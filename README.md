@@ -2,6 +2,9 @@
 
 This bit of code controls LEDs on a Stickerbox.
 
+The Stickerbox has some LED-Stripes taped to it on which some animations are
+shown. Each animation is shown for 1000 frames after which a new animation is chosen from the available ones.
+
 ## Contribute
 
 Aside from bug fixing or creating new features, which would be possible everywhere,
