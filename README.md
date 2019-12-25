@@ -75,7 +75,7 @@ Some functions provide the initial colors for patterns like the pride colors.
 
 ### How to add a new animation
 
-Any animation is displayed for a number of framed (for example 1000, the number is set in the constant *frames_per_mode*) frames. After that a new animation is
+Any animation is displayed for a number of frames (for example 1000, the number is set in the constant *frames_per_mode*). After that a new animation is
 chosen at random.
 
 To add a new animation at a new function into the **modes.h** file, and add the
@@ -91,3 +91,5 @@ the type *RGB*.
 
 Be aware that not all leds are actually visible. For example in the 36C6 Stickerbox setup the first 12 and the last 13
 leds of eacht stripe are not.
+
+Please do not call delay in your function or use other things to make stall the execution of the main loop.
