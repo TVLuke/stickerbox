@@ -1,11 +1,11 @@
 # Stickerbox
 
-This bit of code controlls LEDs on a Stickerbox.
+This bit of code controls LEDs on a Stickerbox.
 
 ## Contribute
 
-Aside from bugfixing or creating new features, which would be possible everywhere,
-one way to contribute is to add new animations. before doing so some info might
+Aside from bug fixing or creating new features, which would be possible everywhere,
+one way to contribute is to add new animations. Before doing so some info might
 be relevant.
 
 ### Relevant Data Structures
