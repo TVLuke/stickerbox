@@ -36,3 +36,19 @@ void showStripes() {
     stripes[i].show();
   }
 }
+
+void beginLeds() {
+  pinMode(LED_PIN1, OUTPUT);
+  pinMode(LED_PIN2, OUTPUT);
+  pinMode(LED_PIN3, OUTPUT);
+
+  leds1.begin();
+  leds1.show();
+
+  leds2.begin();
+  leds2.show();
+
+  leds3.begin();
+  leds3.show();
+
+}

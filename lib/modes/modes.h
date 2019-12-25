@@ -1,54 +1,16 @@
 #include <modeutils.h>
 
+void prideInit(int ledStripeNumber);
+void prideInit();
+void randomInit();
+void wheelInit();
+void alternatingInit();
+
+//each of the mode funtions can be randomly selected to be displayed
 void shMode(int frame) {
   setcolor(0, RED);
   setcolor(1, WHITE);
   setcolor(2, BLUE);
-}
-
-void prideInit(int ledStripeNumber) {
-  for(int j=0; j<number_of_leds_per_stripe; j++) {
-    leds[ledStripeNumber][j].r = getPrideColor_r(j);
-    leds[ledStripeNumber][j].g = getPrideColor_g(j);
-    leds[ledStripeNumber][j].b = getPrideColor_b(j);
-  }
-}
-
-void prideInit() {
-  for(int i=0; i<number_of_stripes; i++) {
-    prideInit(i);
-  }
-}
-
-void randomInit() {
-  for(int i=0; i<number_of_stripes; i++) {
-    for(int j=0; j<number_of_leds_per_stripe; j++) {
-      //random values with always 100% saturation
-      leds[i][j].r = random(256);
-      leds[i][j].g = random(256-leds[i][j].r);
-      leds[i][j].b = (255-leds[i][j].r-leds[i][j].g);
-    }
-  }
-}
-
-void wheelInit() {
-  for(int i=0; i<number_of_stripes; i++) {
-    for(int j=0; j<number_of_leds_per_stripe; j++) {
-      leds[i][j].r = getWheel_r(j);
-      leds[i][j].g = getWheel_g(j);
-      leds[i][j].b = getWheel_b(j);
-    }
-  }
-}
-
-void alternatingInit() {
-  for(int i=0; i<number_of_stripes; i++) {
-    for(int j=0; j<number_of_leds_per_stripe; j++) {
-      if(j%2 == 0) {
-        leds[i][j] = WHITE;
-      }
-    }
-  }
 }
 
 void prideMode(int frame) {
@@ -130,5 +92,55 @@ void redMode(int frame) {
 void magentaMode(int frame) {
   for(int i=0; i<number_of_stripes; i++) {
     setcolor(i, MAGENTA);
+  }
+}
+
+static const int number_of_modes = 8;
+void (*modes[number_of_modes])(int) = {prideMode, randomMode, wheelMode, alternatingMode,
+  aaaalarmMode, greenMode, redMode, magentaMode};
+
+//bunch of init functions and stuff
+void prideInit(int ledStripeNumber) {
+  for(int j=0; j<number_of_leds_per_stripe; j++) {
+    leds[ledStripeNumber][j].r = getPrideColor_r(j);
+    leds[ledStripeNumber][j].g = getPrideColor_g(j);
+    leds[ledStripeNumber][j].b = getPrideColor_b(j);
+  }
+}
+
+void prideInit() {
+  for(int i=0; i<number_of_stripes; i++) {
+    prideInit(i);
+  }
+}
+
+void randomInit() {
+  for(int i=0; i<number_of_stripes; i++) {
+    for(int j=0; j<number_of_leds_per_stripe; j++) {
+      //random values with always 100% saturation
+      leds[i][j].r = random(256);
+      leds[i][j].g = random(256-leds[i][j].r);
+      leds[i][j].b = (255-leds[i][j].r-leds[i][j].g);
+    }
+  }
+}
+
+void wheelInit() {
+  for(int i=0; i<number_of_stripes; i++) {
+    for(int j=0; j<number_of_leds_per_stripe; j++) {
+      leds[i][j].r = getWheel_r(j);
+      leds[i][j].g = getWheel_g(j);
+      leds[i][j].b = getWheel_b(j);
+    }
+  }
+}
+
+void alternatingInit() {
+  for(int i=0; i<number_of_stripes; i++) {
+    for(int j=0; j<number_of_leds_per_stripe; j++) {
+      if(j%2 == 0) {
+        leds[i][j] = WHITE;
+      }
+    }
   }
 }
