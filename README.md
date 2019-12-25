@@ -89,7 +89,7 @@ displayed in the next frame. The array is of the size
 leds[number_of_stripes][number_of_leds_per_stripe] and the elements are each of
 the type *RGB*.
 
-Be aware that not all leds are actually visible. For example in the 36C6 Stickerbox setup the first 12 and the last 13
-leds of eacht stripe are not.
+Be aware that not all LEDS may be actually visible in any setup. For example in the 36C6 Stickerbox setup the first 12 and the last 13
+leds of each stripe are not.
 
 Please do not call delay in your function or use other things to make stall the execution of the main loop.
