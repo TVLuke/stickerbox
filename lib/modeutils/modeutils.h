@@ -1,9 +1,9 @@
 #include <Arduino.h>
 
 struct RGB {
-  unsigned long r;
-  unsigned long g;
-  unsigned long b;
+  byte r;
+  byte g;
+  byte b;
 };
 
 static const int number_of_stripes = 3;
