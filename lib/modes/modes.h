@@ -8,9 +8,9 @@ void alternatingInit();
 
 //each of the mode funtions can be randomly selected to be displayed
 void shMode(int frame) {
-  setcolor(0, RED);
-  setcolor(1, WHITE);
   setcolor(2, BLUE);
+  setcolor(1, WHITE);
+  setcolor(0, RED);
 }
 
 void prideMode(int frame) {
@@ -18,6 +18,18 @@ void prideMode(int frame) {
     prideInit();
   } else {
     walkForwards();
+  }
+}
+
+void pride2Mode(int frame) {
+  if(frame == 0) {
+    prideInit();
+  } else {
+    if(frame < 500) {
+      walkForwards();
+    } else {
+      walkBackwards();
+    }
   }
 }
 
@@ -95,9 +107,18 @@ void magentaMode(int frame) {
   }
 }
 
-static const int number_of_modes = 8;
-void (*modes[number_of_modes])(int) = {prideMode, randomMode, wheelMode, alternatingMode,
-  aaaalarmMode, greenMode, redMode, magentaMode};
+void stroboMode(int frame) {
+  int x = frame / 15;
+  if (x%8 == 1 || x%8 == 3 ) {
+      setcolor(WHITE);
+    } else {
+      setcolor(BLACK);
+    }
+}
+
+static const int number_of_modes = 10;
+void (*modes[number_of_modes])(int) = {prideMode, pride2Mode, randomMode, wheelMode, alternatingMode,
+  aaaalarmMode, greenMode, redMode, magentaMode, stroboMode};
 
 //bunch of init functions and stuff
 void prideInit(int ledStripeNumber) {

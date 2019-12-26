@@ -1,5 +1,3 @@
-#define LED_PIN1       D8
-#define LED_PIN2       D7
-#define LED_PIN3       D6
+#define LED_PIN       D8
 
-#define NUM_LEDS      100
+#define NUM_LEDS      300

@@ -7,7 +7,7 @@ struct RGB {
 };
 
 static const int number_of_stripes = 3;
-static const int number_of_leds_per_stripe = 100;
+static const int number_of_leds_per_stripe = 75;
 static const int frames_per_mode = 1000;
 static const int frame_delay = 1;
 
@@ -35,6 +35,12 @@ void setcolor(int ledStripeNumber, RGB c) {
       leds[ledStripeNumber][j].g = c.g;
       leds[ledStripeNumber][j].b = c.b;
     }
+}
+
+void setcolor(RGB c) {
+  for(int i=0; i<number_of_stripes; i++) {
+    setcolor(i, c);
+  }
 }
 
 void reset(int ledStripeNumber) {
