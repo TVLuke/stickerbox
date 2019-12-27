@@ -33,5 +33,6 @@ void beginLeds() {
   pinMode(LED_PIN, OUTPUT);
 
   stripe.begin();
+  stripe.setBrightness(250);
   stripe.show();
 }
