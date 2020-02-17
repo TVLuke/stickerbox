@@ -4,7 +4,6 @@
 
 Adafruit_NeoPixel stripe(NUM_LEDS, LED_PIN, NEO_GRB + NEO_KHZ800);
 
-//new stuff
 void (*executeMode) (int);
 
 void resetStripes() {
